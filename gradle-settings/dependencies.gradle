@@ -1,0 +1,18 @@
+ext.versions = [code                      : 100000000,
+                name                      : '1.0.0',
+                minSdk                    : 21,
+                targetSdk                 : 33,
+                compileSdk                : 33,
+                buildTools                : "30.0.2",
+                kotlin                    : "1.6.10",
+                gradle                    : "7.0.3"]
+
+ext.gradlePlugins = [androidGradle          : "com.android.tools.build:gradle:${versions.gradle}",
+                     kotlinGradle           : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+                     kotlinAndroidExtensions: "org.jetbrains.kotlin:kotlin-android-extensions:${versions.kotlin}",]
+
+ext.libs = [
+        //Kotlin
+        kotlin                        : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+        kotlinAndroidExtensionsRuntime: "org.jetbrains.kotlin:kotlin-android-extensions-runtime:${versions.kotlin}",
+]

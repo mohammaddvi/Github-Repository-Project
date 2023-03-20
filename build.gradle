@@ -1,0 +1,12 @@
+buildscript {
+    apply from: rootProject.file('gradle-settings/dependencies.gradle')
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath gradlePlugins.kotlinGradle
+        classpath "com.android.tools.build:gradle:$versions.gradle"
+        classpath gradlePlugins.kotlinAndroidExtensions
+    }
+}
