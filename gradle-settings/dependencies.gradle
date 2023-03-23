@@ -1,11 +1,35 @@
-ext.versions = [code                      : 100000000,
-                name                      : '1.0.0',
-                minSdk                    : 21,
-                targetSdk                 : 33,
-                compileSdk                : 33,
-                buildTools                : "30.0.2",
-                kotlin                    : "1.6.10",
-                gradle                    : "7.0.3"]
+ext.versions = [code              : 100000000,
+                name              : '1.0.0',
+                minSdk            : 21,
+                targetSdk         : 33,
+                compileSdk        : 33,
+                buildTools        : "30.0.2",
+                gradle            : "7.0.3",
+
+                //Kotlin
+                kotlin            : "1.6.10",
+
+                //DI
+                koin              : "3.1.2",
+
+                //Network
+                gson              : '2.8.1',
+                okhttp            : '3.12.1',
+                okhttpLogging     : '3.5.0',
+                retrofit          : '2.9.0',
+                retrofitCoroutines: '0.9.2',
+
+                //DB
+                room              : "2.5.0",
+
+                //UnitTest
+                mockk             : "1.10.5",
+                junit             : "4.13.2",
+                coroutinesTest    : "1.4.3",
+                androidArchitectureTesting : "2.1.0"
+
+
+]
 
 ext.gradlePlugins = [androidGradle          : "com.android.tools.build:gradle:${versions.gradle}",
                      kotlinGradle           : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
@@ -15,4 +39,29 @@ ext.libs = [
         //Kotlin
         kotlin                        : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
         kotlinAndroidExtensionsRuntime: "org.jetbrains.kotlin:kotlin-android-extensions-runtime:${versions.kotlin}",
+
+        //DI
+        koinTest                      : "io.insert-koin:koin-test:${versions.koin}",
+        koinCore                      : "io.insert-koin:koin-core:${versions.koin}",
+        koinAndroid                   : "io.insert-koin:koin-android:${versions.koin}",
+
+
+        //Network
+        retrofit                      : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        okhttp                        : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+
+        //DB
+        roomRuntime                   : "androidx.room:room-runtime:${versions.room}",
+        roomKtx                       : "androidx.room:room-ktx:${versions.room}",
+        roomCompiler                  : "androidx.room:room-compiler:${versions.room}",
+        roomCommon                    : "androidx.room:room-common:${versions.room}",
+
+        //UnitTest
+        mockk                         : "io.mockk:mockk:${versions.mockk}",
+        kotlinTest                    : "org.jetbrains.kotlin:kotlin-test",
+        junit                         : "junit:junit:${versions.junit}",
+        coroutinesTest                : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutinesTest}",
+        archTesting                   : "androidx.arch.core:core-testing:$versions.androidArchitectureTesting",
+
+
 ]
