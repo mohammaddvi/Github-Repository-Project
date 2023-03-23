@@ -7,12 +7,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FakeLocalDataSource : LocalProjectDataSource {
+    var fakeData : List<ProjectDto> = fakeLocalData
     override suspend fun updateProjects(projects: List<ProjectDto>) {
+        fakeData = projects
     }
 
-    override fun fetchProjects(page: Int, countPerPage: Int): Flow<List<ProjectDto>> = flow {
-        fakeLocalData
-    }
+    override suspend fun fetchProjects(page: Int, countPerPage: Int): List<ProjectDto> =
+        fakeData
+
 }
 
 class FakeRemoteDataSource : RemoteProjectDataSource {

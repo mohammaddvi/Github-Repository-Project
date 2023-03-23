@@ -6,8 +6,6 @@ import com.example.githubrepositories.data.db.ProjectDao
 import com.example.githubrepositories.data.db.ProjectsDatabase
 import com.example.githubrepositories.data.repository.ProjectRepository
 import com.example.githubrepositories.data.repository.ProjectRepositoryImpl
-import com.example.githubrepositories.data.repository.datastore.ProjectDataStore
-import com.example.githubrepositories.data.repository.datastore.ProjectDataStoreImpl
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -25,6 +23,5 @@ val projectDBModule = module {
 
 val appModule = module {
     single { provideRetrofit(get()) }
-    factory<ProjectRepository> { ProjectRepositoryImpl(get(),get(),get()) }
-    factory<ProjectDataStore> { ProjectDataStoreImpl() }
+    factory<ProjectRepository> { ProjectRepositoryImpl(get(),get()) }
 }

@@ -3,6 +3,7 @@ package com.example.githubrepositories.data.repository
 import android.util.Log
 import com.example.githubrepositories.data.datasource.LocalProjectDataSource
 import com.example.githubrepositories.data.datasource.RemoteProjectDataSource
+import org.koin.core.component.getScopeId
 
 class ProjectRepositoryImpl(
     private val localProjectDataSource: LocalProjectDataSource,
@@ -14,11 +15,11 @@ class ProjectRepositoryImpl(
             remoteProjectDataSource.fetchProjects(page, countPerPage)
         }.onSuccess {
             localProjectDataSource.updateProjects(it)
-        }.onFailure {
-            Log.d("mogger", "failed")
-        }
+        }.onFailure {}
 
-        return localProjectDataSource.fetchProjects(page, countPerPage).map { it.toProject() }
+        val local = localProjectDataSource.fetchProjects(page, countPerPage)
+        return if (local.isEmpty()) emptyList()
+        else local.map { it.toProject() }
     }
 }
 
