@@ -17,7 +17,7 @@ class ProjectRepositoryImpl(
             localProjectDataSource.updateProjects(it)
         }.onFailure {}
 
-        val local = localProjectDataSource.fetchProjects(page, countPerPage)
+        val local = localProjectDataSource.fetchProjects(countPerPage, page * countPerPage)
         return if (local.isEmpty()) emptyList()
         else local.map { it.toProject() }
     }

@@ -1,7 +1,6 @@
 package com.example.githubrepositories
 
 import com.example.githubrepositories.data.datasource.LocalProjectDataSource
-import com.example.githubrepositories.data.datasource.LocalProjectsDataSourceImpl
 import com.example.githubrepositories.data.datasource.RemoteProjectDataSource
 import com.example.githubrepositories.data.repository.Project
 import com.example.githubrepositories.data.repository.ProjectRepositoryImpl

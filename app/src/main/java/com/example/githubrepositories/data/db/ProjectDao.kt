@@ -11,9 +11,6 @@ interface ProjectDao {
     suspend fun insertProjects(projects: List<ProjectDto>)
 
     @Query("SELECT * FROM projects LIMIT :countPerPage OFFSET :offset")
-    suspend fun getAllRepositories(page: Int, countPerPage: Int): List<ProjectDto> {
-        val offset = (page - 1) * countPerPage
-        return getAllRepositories(countPerPage, offset)
-    }
+    suspend fun getAllRepositories(countPerPage: Int, offset: Int): List<ProjectDto>
 
 }
