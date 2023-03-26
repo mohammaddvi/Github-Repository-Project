@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath gradlePlugins.kotlinGradle
-        classpath "com.android.tools.build:gradle:$versions.gradle"
+        classpath gradlePlugins.androidGradle
         classpath gradlePlugins.kotlinAndroidExtensions
     }
 }

@@ -1,6 +1,7 @@
 
 apply from: rootProject.file('gradle-settings/dependencies.gradle')
 android {
+    namespace 'com.example.githubrepositories'
     compileSdk versions.compileSdk
     buildToolsVersion versions.buildTools
 
@@ -11,14 +12,13 @@ android {
         versionName versions.name
         consumerProguardFiles "consumer-rules.pro"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 }
 
 repositories {
-    google()
-    mavenCentral()
     maven {
         url 'https://maven.google.com'
     }
+    google()
+    mavenCentral()
 }

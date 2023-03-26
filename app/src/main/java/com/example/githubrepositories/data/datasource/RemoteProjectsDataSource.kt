@@ -1,12 +1,11 @@
 package com.example.githubrepositories.data.datasource
 
-import com.example.githubrepositories.data.ProjectDto
 import com.example.githubrepositories.data.network.ApiClient
-import kotlinx.coroutines.flow.Flow
+import com.example.githubrepositories.data.network.ProjectResponseDto
 
 
 interface RemoteProjectDataSource {
-    suspend fun fetchProjects(page: Int, countPerPage: Int): List<ProjectDto>
+    suspend fun fetchProjects(page: Int, countPerPage: Int): List<ProjectResponseDto>
 }
 
 class RemoteProjectsDataSourceImpl(private val apiClient: ApiClient) : RemoteProjectDataSource {

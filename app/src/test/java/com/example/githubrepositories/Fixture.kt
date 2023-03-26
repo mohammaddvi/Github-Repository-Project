@@ -1,42 +1,46 @@
 package com.example.githubrepositories
 
-import com.example.githubrepositories.data.ProjectDto
+import com.example.githubrepositories.data.db.entities.ProjectEntity
+import com.example.githubrepositories.data.network.ProjectOwnerResponseDto
+import com.example.githubrepositories.data.network.ProjectResponseDto
 
 val fakeRemoteData = listOf(
-    ProjectDto(
+    ProjectResponseDto(
         1,
         "test project",
         "mohammad",
-        "This is a test project",
+        false,
         "www.myavatar.com",
         "Public",
         "www.github.com",
-        false
+        ProjectOwnerResponseDto("www.myavatar.com")
     ),
-    ProjectDto(
+    ProjectResponseDto(
         2,
         "test project 2",
         "mohammad",
-        "This is a test project",
+        true,
         "www.myavatar.com",
         "Private",
         "www.github.com",
-        true
+        ProjectOwnerResponseDto("www.myavatar.com")
+
     ),
-    ProjectDto(
+    ProjectResponseDto(
         3,
         "test project 3",
         "mohammad",
-        "This is a test project",
+        false,
         "www.myavatar.com",
         "Public",
         "www.github.com",
-        false
+        ProjectOwnerResponseDto("www.myavatar.com")
+
     ),
 )
 
 val fakeLocalData = listOf(
-    ProjectDto(
+    ProjectEntity(
         1,
         "test project local",
         "mohammad",
@@ -46,7 +50,7 @@ val fakeLocalData = listOf(
         "www.github.com",
         false
     ),
-    ProjectDto(
+    ProjectEntity(
         2,
         "test project local 2",
         "mohammad",
@@ -56,7 +60,7 @@ val fakeLocalData = listOf(
         "www.github.com",
         true
     ),
-    ProjectDto(
+    ProjectEntity(
         3,
         "test project local 3",
         "mohammad",

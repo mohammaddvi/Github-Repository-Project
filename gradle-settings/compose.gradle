@@ -1,0 +1,38 @@
+apply from: rootProject.file('gradle-settings/dependencies.gradle')
+
+android {
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = versions.composeCompiler
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+dependencies {
+
+    //MainCompose
+    implementation libs.composeUi
+    implementation libs.composeMaterial
+    implementation libs.composeActivity
+
+    //PreviewCompose
+    implementation libs.composePreview
+    debugImplementation libs.composeTooling
+
+    //AccompanistCompose
+    implementation libs.accompanistNavigation
+    implementation libs.accompanistSwipeRefresh
+
+    //CoilCompose
+    implementation libs.composeCoil
+
+    //KoinCompose
+    implementation libs.composeKoin
+
+    //PagingCompose
+    implementation libs.composePaging
+
+}
