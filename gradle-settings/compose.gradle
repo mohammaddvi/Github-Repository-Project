@@ -17,6 +17,9 @@ dependencies {
     implementation libs.composeUi
     implementation libs.composeMaterial
     implementation libs.composeActivity
+    implementation libs.composeLivedata
+    implementation libs.composeFoundation
+
 
     //PreviewCompose
     implementation libs.composePreview

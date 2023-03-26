@@ -93,6 +93,8 @@ ext.libs = [
         composeUi                     : "androidx.compose.ui:ui:${versions.compose}",
         composeMaterial               : "androidx.compose.material:material:${versions.compose}",
         composeActivity               : "androidx.activity:activity-compose:${versions.activityCompose}",
+        composeLivedata               : "androidx.compose.runtime:runtime-livedata:${versions.compose}",
+        composeFoundation             : "androidx.compose.foundation:foundation:${versions.compose}",
 
 
         //PreviewCompose

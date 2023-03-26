@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">GithubRepositories</string>
+    <string name="project_image_content_description">Owner\'s repository avatar</string>
+    <string name="project_name_title">Name:</string>
+    <string name="project_visibility_title">Visibility:</string>
+    <string name="project_private_title">Private:</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="test">Visibility</string>
+    <string name="owner_avatar_description">This is Owner\'s avatar</string>
+    <string name="project_fullname_title">Full name</string>
+    <string name="project_description_title">Description</string>
+    <string name="open_browser_text">Open browser</string>
 </resources>
