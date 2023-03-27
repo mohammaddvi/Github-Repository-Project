@@ -5,21 +5,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.material.Divider
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.flowWithLifecycle
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -56,11 +54,14 @@ fun ProjectListScreen(
                     items(items) { repositoryModel ->
                         if (repositoryModel != null) {
                             ProjectItem(
+                                modifier = Modifier.background(Color.Yellow).padding(5.dp),
                                 repositoryModel = repositoryModel,
-                                onUserClicked = { viewModel.onUserClicked(it)
-                                    onUserClicked(it)}
+                                onUserClicked = {
+                                    viewModel.onUserClicked(it)
+                                    onUserClicked(it)
+                                }
                             )
-                            Spacer(modifier = Modifier.padding(10.dp))
+                            Spacer(modifier = Modifier.padding(5.dp))
                         }
                     }
                 }
@@ -71,13 +72,13 @@ fun ProjectListScreen(
 
 @Composable
 fun ProjectItem(
+    modifier: Modifier = Modifier,
     repositoryModel: Project,
     onUserClicked: (Project) -> Unit
 ) {
     Row(
-        Modifier
+        modifier
             .fillMaxSize()
-            .background(Color.Red)
             .clickable { repositoryModel.description?.let { onUserClicked(repositoryModel) } }
             .padding(10.dp)
     ) {
@@ -86,21 +87,26 @@ fun ProjectItem(
             contentDescription = stringResource(R.string.owner_avatar_description),
             modifier = Modifier
                 .size(64.dp)
-                .padding(10.dp),
-            error = rememberVectorPainter(image = Icons.Filled.Person),
+                .padding(10.dp)
+                .clip(RoundedCornerShape(10.dp)),
         )
         Spacer(modifier = Modifier.size(10.dp))
-        Column {
-            Row {
-                BasicText(stringResource(R.string.project_name_title))
+        Row {
+            Column {
+                Text(stringResource(R.string.project_name_title), fontWeight = FontWeight.Bold)
+                Text(
+                    stringResource(R.string.project_visibility_title),
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    stringResource(id = R.string.project_private_title),
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Spacer(modifier = Modifier.padding(5.dp))
+            Column {
                 Text(repositoryModel.name)
-            }
-            Row {
-                Text(stringResource(R.string.project_visibility_title))
                 Text(repositoryModel.visibility)
-            }
-            Row {
-                Text(stringResource(id = R.string.project_private_title))
                 Text(repositoryModel.isPrivate.toString())
 
             }

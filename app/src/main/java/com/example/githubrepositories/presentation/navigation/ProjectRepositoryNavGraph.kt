@@ -25,26 +25,25 @@ sealed class ProjectScreen(val name: String) {
 fun NavController() {
     val projectViewModel: ProjectViewModel = getViewModel()
     val navController = rememberAnimatedNavController()
-
-        Scaffold {
-            AnimatedNavHost(
-                navController = navController,
-                startDestination = ProjectScreen.ProjectListScreen.name
+    Scaffold {
+        AnimatedNavHost(
+            navController = navController,
+            startDestination = ProjectScreen.ProjectListScreen.name
+        ) {
+            composable(
+                route = ProjectScreen.ProjectListScreen.name,
             ) {
-                composable(
-                    route = ProjectScreen.ProjectListScreen.name,
-                ) {
-                    ProjectListScreen(
-                        viewModel = projectViewModel,
-                        onRefresh = { projectViewModel.loadData() },
-                        onUserClicked = {
-                            navController.navigate(ProjectScreen.ProjectDetailsScreen.name)
-                        })
-                }
-                composable(route = ProjectScreen.ProjectDetailsScreen.name) {
-                    ProjectDetailsScreen(project = projectViewModel.state.value.detailsProject!!)
-                }
+                ProjectListScreen(
+                    viewModel = projectViewModel,
+                    onRefresh = { projectViewModel.loadData() },
+                    onUserClicked = {
+                        navController.navigate(ProjectScreen.ProjectDetailsScreen.name)
+                    })
+            }
+            composable(route = ProjectScreen.ProjectDetailsScreen.name) {
+                ProjectDetailsScreen(project = projectViewModel.state.value.detailsProject!!)
             }
         }
     }
+}
 

@@ -13,9 +13,9 @@ class ProjectViewModel(
     private val projectRepository: ProjectRepository
 ) : ViewModel() {
 
-    private val stateStream: MutableStateFlow<State> =
-        MutableStateFlow(State(isLoading = true))
+    private val stateStream: MutableStateFlow<State> = MutableStateFlow(State(isLoading = true))
     val state: StateFlow<State> = stateStream
+
     var pagingResult: Flow<PagingData<Project>> = emptyFlow()
 
     init {
